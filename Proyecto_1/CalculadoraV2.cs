@@ -5,9 +5,10 @@ class CalculadoraV2
     static void Main()
     {
         Console.Write("Ingrese un número real: ");
-        string entrada = Console.ReadLine();
+        string entrada = Console.ReadLine() ?? "";
 
-        bool esNumero = float.TryParse(entrada, out float numero);
+        float numero;  // Declaración antes del TryParse
+        bool esNumero = float.TryParse(entrada, out numero);
 
         if (!esNumero)
         {
@@ -17,13 +18,13 @@ class CalculadoraV2
 
         Console.WriteLine("\nResultados:\n");
 
-        // Valor absoluto
+        // 1. Valor absoluto
         Console.WriteLine("Valor absoluto: " + Math.Abs(numero));
 
-        // Cuadrado
+        // 2. Cuadrado
         Console.WriteLine("Cuadrado: " + (numero * numero));
 
-        // Raíz cuadrada (sólo si el número es >= 0)
+        // 3. Raíz cuadrada (sólo si el número es >= 0)
         if (numero >= 0)
         {
             Console.WriteLine("Raíz cuadrada: " + Math.Sqrt(numero));
@@ -33,13 +34,13 @@ class CalculadoraV2
             Console.WriteLine("Raíz cuadrada: No se puede calcular (número negativo).");
         }
 
-        // Seno
+        // 4. Seno
         Console.WriteLine("Seno: " + Math.Sin(numero));
 
-        // Coseno
+        // 5. Coseno
         Console.WriteLine("Coseno: " + Math.Cos(numero));
 
-        // Parte entera (por conversión)
+        // 6. Parte entera (por conversión a entero)
         int parteEntera = (int)numero;
         Console.WriteLine("Parte entera: " + parteEntera);
     }

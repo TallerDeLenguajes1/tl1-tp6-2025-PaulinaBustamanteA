@@ -5,7 +5,7 @@ class Ejercicio1
     {
         //pido un numero al usuario
         Console.Write("Ingrese un número: ");
-        string entrada = Console.ReadLine(); //entrada como texto
+        string entrada = Console.ReadLine() ?? ""; //entrada como texto
 
         //verifico si el texto ingresado es valido
         bool esNumero = int.TryParse(entrada, out int numero);
